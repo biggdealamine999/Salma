@@ -1,85 +1,39 @@
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title> Salma jtm❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<audio id="mySong">
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<script>
+    function createPetal() {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        const items = ['🌸', '❤️', '🌹', '✨'];
+        petal.innerText = items[Math.floor(Math.random() * items.length)];
+        
+        petal.style.left = Math.random() * 100 + 'vw';
+        petal.style.animationDuration = Math.random() * 2 + 3 + 's';
+        petal.style.fontSize = Math.random() * 20 + 10 + 'px';
+        
+        document.body.appendChild(petal);
+        
+        setTimeout(() => {
+            petal.remove();
+        }, 5000);
+    }
 
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-}
+    function startSurprise() {
+        // 1. Play the music
+        const song = document.getElementById("mySong");
+        song.play().catch(error => {
+            console.log("Autoplay was prevented. Clicking the button handles this!");
+        });
 
-.card {
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px);
-  padding: 45px 35px;
-  border-radius: 22px;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-  animation: fadeIn 1.5s ease;
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.6em;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.05em;
-  line-height: 1.8;
-  margin-top: 25px;
-}
-
-.heart {
-  font-size: 50px;
-  margin: 25px 0;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  50% { transform: scale(1.2); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.signature {
-  margin-top: 25px;
-  font-style: italic;
-}
-</style>
-</head>
-
-<body>
-
-<div class="card">
-  <h1>Twhchhhtk cant wait to see u again </h1>
-  <h2>my little babyyyy </h2>
-
-  <p>
-   I know we’re far from each other right now, but I want you to know rak fbali w on my mind every single day. It’s been a whilee matlaqinaa,and I miss you soo so sooo much a hayati. I miss talking to you, laughing with you, and that feeling of comfort that only you give me. Some days the distance feels heavy, but loving you makes it easier to carry. I just can’t wait for the moment I get to see you again and hold you, because that’s where I feel most at home.uhibok salmaa dyaliii
-  </p>
-
-  <div class="heart">❤️</div>
-
-  <div class="signature">
-    With all my love,<br>
-    <strong>Amine</strong>
-  </div>
-</div>
-
-</body>
-</html>
+        // 2. Start the petals
+        let count = 0;
+        const interval = setInterval(() => {
+            createPetal();
+            count++;
+            if (count > 50) clearInterval(interval);
+        }, 100);
+    }
+</script>
